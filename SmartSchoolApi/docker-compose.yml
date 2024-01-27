@@ -10,7 +10,7 @@ networks:
 services:
 
   mysql:
-    image: "mysql:8.0"
+    image: "mysql"
     container_name: mysql
     ports:
       - "3306:3306"
@@ -19,10 +19,9 @@ services:
     networks:
       - mysqlNet
     environment:
-      - MYSQL_ROOT_HOST=% mysql:8.0
+      - bind-address:0.0.0.0
+      - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=root
-      - bind-adress:0.0.0.0
-      - MYSQL_USER=root
       - MYSQL_PASSWORD=root
       
   smartschool:
