@@ -14,6 +14,11 @@ namespace SmartschoolApi.Repository.Intefaces
 
         Task<ProfessorRegisterVO> UpdateByIdAsync(ProfessorRegisterVO professor);
 
+        Task<ProfessorVO> FindProfessorDisciplinaByIdAsync(int id);
+
+        Task<IEnumerable<ProfessorVO>> FindAllProfessorDisciplinasAsync();
+
+
         Task<bool> DeleteByIdAsync(int id);
 
     }

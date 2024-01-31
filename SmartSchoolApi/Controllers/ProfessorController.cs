@@ -30,10 +30,31 @@ namespace SmartSchoolApi.Controllers
             return Ok(professores);
         }
 
+        [HttpGet("/GetAllProfessorDisciplinasAsync")]
+        public async Task<IActionResult> GetAllProfessorDisciplinasAsync()
+        {
+            var professores = await _professorRepository.FindAllProfessorDisciplinasAsync();
+            return Ok(professores);
+        }
+
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var professor = await _professorRepository.FindByIdAsync(id);
+
+            if (professor == null)
+                return NotFound();
+
+            return Ok(professor);
+        }
+
+        
+
+        [HttpGet("/GetProfessorDisciplinaById/{id}")]
+        public async Task<IActionResult> GetProfessorDisciplinaById(int id)
+        {
+            var professor = await _professorRepository.FindProfessorDisciplinaByIdAsync(id);
 
             if (professor == null)
                 return NotFound();

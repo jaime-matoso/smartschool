@@ -26,9 +26,23 @@ namespace SmartschoolApi.Repository
             return professorVO;
         }
 
+        public async Task<IEnumerable<ProfessorVO>> FindAllProfessorDisciplinasAsync()
+        {
+            IEnumerable<Professor> professores = await _context.Professores.Include(p => p.Disciplinas).ToListAsync();
+            var professorVO = _mapper.Map<IEnumerable<ProfessorVO>>(professores);
+            return professorVO;
+        }
+
         public async Task<ProfessorVO> FindByIdAsync(int id)
         {
             Professor professor = await _context.Professores.Where(a => a.Id == id).FirstOrDefaultAsync();
+            var professorVO = _mapper.Map<ProfessorVO>(professor);
+            return professorVO;
+        }
+
+        public async Task<ProfessorVO> FindProfessorDisciplinaByIdAsync(int id)
+        {
+            Professor professor = await _context.Professores.Include(p => p.Disciplinas).Where(a => a.Id == id).FirstOrDefaultAsync();
             var professorVO = _mapper.Map<ProfessorVO>(professor);
             return professorVO;
         }

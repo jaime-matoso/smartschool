@@ -32,8 +32,7 @@ namespace SmartschoolApi.Model
         [Required]
         [StringLength(20)]
         public string Telefone { get; set; }
-
-        [JsonIgnore]
-        public IEnumerable<Disciplina> Disciplinas { get; set; }
+        
+        public IEnumerable<Disciplina>? Disciplinas { get; set; }
     }
 }
