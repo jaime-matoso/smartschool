@@ -34,9 +34,14 @@ namespace SmartschoolApi.Helpers
                     opt => opt.MapFrom(src => $"{src.Nome} {src.Sobrenome}")
                 );
 
-            CreateMap<Aluno, AlunoRegisterVO>();
+            CreateMap<ProfessorVO, Professor>();
+            
+            CreateMap<Professor, ProfessorRegisterVO>();
+            CreateMap<ProfessorRegisterVO, Professor>();
 
+            CreateMap<Aluno, AlunoRegisterVO>();
             CreateMap<AlunoRegisterVO,Aluno>();
+            
         }
     }
 }

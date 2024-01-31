@@ -1,17 +1,18 @@
 ﻿using SmartschoolApi.Data.ValueObject;
 using SmartschoolApi.Model;
+using SmartSchoolApi.Data.ValueObject;
 
 namespace SmartschoolApi.Repository.Intefaces
 {
     public interface IProfessorRepository
     {
-        Task<IEnumerable<Professor>> FindAllAsync();
+        Task<IEnumerable<ProfessorVO>> FindAllAsync();
 
-        Task<Professor> FindByIdAsync(int id);
+        Task<ProfessorVO> FindByIdAsync(int id);
 
-        Task<Professor> CreateByIdAsync(Professor professor);
+        Task<ProfessorRegisterVO> CreateByIdAsync(ProfessorRegisterVO professor);
 
-        Task<Professor> UpdateByIdAsync(Professor professor);
+        Task<ProfessorRegisterVO> UpdateByIdAsync(ProfessorRegisterVO professor);
 
         Task<bool> DeleteByIdAsync(int id);
 

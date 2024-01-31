@@ -10,6 +10,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SmartSchoolApi.Controllers.ProfessorController.Get">
+            <summary>
+            Método que retorna todos os professores cadastrados.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SmartSchoolApi.Migrations.Initial">
             <inheritdoc />
         </member>
